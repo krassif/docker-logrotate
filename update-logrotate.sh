@@ -31,7 +31,7 @@ function insertInOrder()
   directory=$5
   _i=$6
 
-  order_arr=($order)
+  order_arr=$order
 
   files=$(grep -n -E "^\s*${directory}.*\{\s*$" $file)
 
