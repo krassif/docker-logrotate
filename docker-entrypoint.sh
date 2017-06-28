@@ -25,7 +25,7 @@ function output()
 }
 
 # Logrotate status file handling
-
+mkdir -p "/logrotate-status"
 logrotate_logstatus="/logrotate-status/logrotate.status"
 
 if [ -n "${LOGROTATE_STATUSFILE}" ]; then
