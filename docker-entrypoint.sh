@@ -81,7 +81,7 @@ fi
 logrotate_autoupdate=true
 
 if [ -n "${LOGROTATE_AUTOUPDATE}" ]; then
-  logrotate_autoupdate="$(echo ${LOGROTATE_AUTOUPDATE,,})"
+  logrotate_autoupdate="$(echo ${LOGROTATE_AUTOUPDATE})"
 fi
 
 touch /usr/bin/logrotate.d/logrotate.conf
