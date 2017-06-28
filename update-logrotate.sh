@@ -40,7 +40,7 @@ function insertInOrder()
     len=0
   fi
   unset files_table
-  files_table=(${files//:/ })
+  files_table=${files//:/ }
   unset line
 
   for i in `seq 0 $(( len - 1 ))`; do
