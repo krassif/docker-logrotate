@@ -1,4 +1,4 @@
-FROM armhf/alpine:3.5
+FROM alpine:3.5
 MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
 # logrotate version (e.g. 3.9.1-r0)
@@ -21,7 +21,7 @@ RUN export CONTAINER_USER=logrotate && \
       else apk add "logrotate=${LOGROTATE_VERSION}" ; \
     fi && \
     mkdir -p /usr/bin/logrotate.d && \
-    wget --no-check-certificate -O /tmp/go-cron.tar.gz https://github.com/krassif/go-cron/releases/download/armhf-v0.0.2/go-cron.tar.gz && \
+    wget --no-check-certificate -O /tmp/go-cron.tar.gz https://github.com/krassif/go-cron/releases/download/x86-64-v0.0.2/go-cron.tar.gz && \
     tar xvf /tmp/go-cron.tar.gz -C /usr/bin && \
     apk del \
       wget && \
