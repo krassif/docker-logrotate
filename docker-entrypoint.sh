@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -x
 #
 # A helper script for ENTRYPOINT.
 
@@ -25,7 +25,7 @@ function output()
 }
 
 # Logrotate status file handling
-mkdir -p "/logrotate-status"
+
 logrotate_logstatus="/logrotate-status/logrotate.status"
 
 if [ -n "${LOGROTATE_STATUSFILE}" ]; then
@@ -81,7 +81,7 @@ fi
 logrotate_autoupdate=true
 
 if [ -n "${LOGROTATE_AUTOUPDATE}" ]; then
-  logrotate_autoupdate="$(echo ${LOGROTATE_AUTOUPDATE})"
+  logrotate_autoupdate="$(echo ${LOGROTATE_AUTOUPDATE,,})"
 fi
 
 touch /usr/bin/logrotate.d/logrotate.conf
@@ -272,11 +272,11 @@ logrotate_cron_timetable="/usr/sbin/logrotate ${logrotate_parameters} --state=${
 
 if [ "$1" = 'cron' ]; then
   if [ ${logrotate_autoupdate} = "true" ]; then
-    /usr/bin/go-cron "${logrotate_croninterval}" /bin/sh -c "/usr/bin/logrotate.d/update-logrotate.sh; ${logrotate_cron_timetable}"
+    /usr/bin/go-cron "${logrotate_croninterval}" /bin/bash -c "/usr/bin/logrotate.d/update-logrotate.sh; ${logrotate_cron_timetable}"
     exit
   fi
 
-  /usr/bin/go-cron "${logrotate_croninterval}" /bin/sh -c "${logrotate_cron_timetable}"
+  /usr/bin/go-cron "${logrotate_croninterval}" /bin/bash -c "${logrotate_cron_timetable}"
 fi
 
 #-----------------------

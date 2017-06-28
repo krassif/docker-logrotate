@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # A helper script for updating the /usr/bin/logrotate.d/logrotate.conf.
 
@@ -31,7 +31,7 @@ function insertInOrder()
   directory=$5
   _i=$6
 
-  order_arr=$order
+  order_arr=($order)
 
   files=$(grep -n -E "^\s*${directory}.*\{\s*$" $file)
 
@@ -40,7 +40,7 @@ function insertInOrder()
     len=0
   fi
   unset files_table
-  files_table=${files//:/ }
+  files_table=(${files//:/ })
   unset line
 
   for i in `seq 0 $(( len - 1 ))`; do
