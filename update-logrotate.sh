@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # A helper script for updating the /usr/bin/logrotate.d/logrotate.conf.
 

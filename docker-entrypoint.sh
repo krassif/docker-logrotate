@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/sh -x
 #
 # A helper script for ENTRYPOINT.
 
@@ -272,11 +272,11 @@ logrotate_cron_timetable="/usr/sbin/logrotate ${logrotate_parameters} --state=${
 
 if [ "$1" = 'cron' ]; then
   if [ ${logrotate_autoupdate} = "true" ]; then
-    /usr/bin/go-cron "${logrotate_croninterval}" /bin/bash -c "/usr/bin/logrotate.d/update-logrotate.sh; ${logrotate_cron_timetable}"
+    /usr/bin/go-cron "${logrotate_croninterval}" /bin/sh -c "/usr/bin/logrotate.d/update-logrotate.sh; ${logrotate_cron_timetable}"
     exit
   fi
 
-  /usr/bin/go-cron "${logrotate_croninterval}" /bin/bash -c "${logrotate_cron_timetable}"
+  /usr/bin/go-cron "${logrotate_croninterval}" /bin/sh -c "${logrotate_cron_timetable}"
 fi
 
 #-----------------------
